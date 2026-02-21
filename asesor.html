@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacta a un Asesor | Pacific Crown Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos adicionales solo para la página de asesor */
+        .asesor-page {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .asesor-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('img/atardecer_playa.jpg') center/cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .asesor-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .asesor-card h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .asesor-card h1 span {
+            color: #667eea;
+            display: block;
+            font-size: 0.6em;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+        
+        .asesor-card > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .contact-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: #667eea;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .contact-icon i {
+            font-size: 24px;
+            color: white;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-details h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .contact-details p {
+            color: #667eea;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .contact-details small {
+            color: #999;
+            font-size: 0.85em;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .message-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .message-box p {
+            color: white;
+            font-size: 1.2em;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .message-box i {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn-asesor {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-email {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-email:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-back {
+            display: inline-block;
+            margin-top: 30px;
+            color: #999;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            color: #667eea;
+        }
+        
+        .btn-back i {
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .asesor-card {
+                padding: 30px 20px;
+            }
+            
+            .asesor-card h1 {
+                font-size: 2em;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Pacific Crown Travel</div>
+        <ul class="nav-links">
+            <li><a href="index.html#inicio">Inicio</a></li>
+            <li><a href="index.html#hoteles">Hospedaje</a></li>
+            <li><a href="index.html#tours">Tours</a></li>
+            <li><a href="index.html#relax">Playa</a></li>
+            <li><a href="index.html#servicios">Servicios</a></li>
+            <li><a href="index.html#contacto" class="btn-nav">Cotizar</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <div class="asesor-page">
+        <div class="asesor-card">
+            <h1>¡Estamos aquí para ti! 
+                <span>Tu asesor personal</span>
+            </h1>
+            
+            <p>Déjanos ayudarte a crear el viaje de tus sueños. Un asesor se pondrá en contacto contigo en menos de 30 minutos.</p>
+            
+            <div class="message-box">
+                <i class="fas fa-headset"></i>
+                <p>📱 Contáctanos directamente y con gusto te atenderemos</p>
+            </div>
+            
+            <div class="contact-info-cards">
+                <!-- Teléfono -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Llámanos</h3>
+                        <p>+52 744 530 9996</p>
+                        <small>Lunes a Domingo 24/7</small>
+                    </div>
+                </div>
+                
+                <!-- Correo -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Escríbenos</h3>
+                        <p>pacificcrowntravel0@gmail.com</p>
+                        <small>Respuesta en menos de 1 hora</small>
+                    </div>
+                </div>
+                
+                <!-- Ubicación -->
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Visítanos</h3>
+                        <p>Acapulco, México</p>
+                        <small>Oficinas en Zona Dorada</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="https://wa.me/527445309996?text=Hola!%20Quiero%20informaci%C3%B3n%20sobre%20sus%20paquetes%20tur%C3%ADsticos" class="btn-asesor btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="mailto:pacificcrowntravel0@gmail.com?subject=Información%20sobre%20paquetes%20turísticos&body=Hola,%20me%20gustaría%20recibir%20información%20sobre..." class="btn-asesor btn-email" target="_blank">
+                    <i class="fas fa-envelope"></i> Enviar Correo
+                </a>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="index.html" class="btn-back">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <div class="footer-bg" style="background-image: url('img/atardecer_playa.jpg');"></div>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Pacific Crown Travel</h3>
+                <p>Tu viaje seguro, confiable y personalizado hacia experiencias auténticas. Hospedaje verificado, atención 24/7 y paquetes a medida.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="contact-list">
+                    <li><i class="fas fa-phone-alt"></i> +52 744 530 9996</li>
+                    <li><i class="fas fa-envelope"></i> pacificcrowntravel0@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Acapulco, México</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pacific Crown Travel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú hamburguesa
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
